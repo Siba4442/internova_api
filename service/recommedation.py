@@ -10,10 +10,9 @@ class RecommedationService():
     def __init__(self):
         self.path_model = "artifacts/word2vec_model.model"
         self.word2vec_model = Word2Vec.load(self.path_model)
-        mongo_uri = "mongodb://localhost:27017"
-        # "mongodb+srv://tm026575:ansu2003@internovacluster.byibt.mongodb.net/?retryWrites=true&w=majority&appName=internovaCluster"
+        mongo_uri = "mongodb+srv://tm026575:ansu2003@internovacluster.byibt.mongodb.net/?retryWrites=true&w=majority&appName=internovaCluster"
         self.client = MongoClient(mongo_uri)
-        self.db = self.client["Candidate"]
+        self.db = self.client["internova_profile"]
         self.candidate_collection = self.db["candidate_profile"]
         self.job_collection = self.db["job_profile"]
     
