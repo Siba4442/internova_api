@@ -4,15 +4,13 @@ from gensim.models import Word2Vec
 from sklearn.metrics.pairwise import cosine_similarity 
 from datetime import datetime
 from domain.domain import JobFilterRequest, CandidateFilterRequest
-from dotenv import load_dotenv
-import os
+
 class RecommedationService():
     
     def __init__(self):
-        load_dotenv()
         self.path_model = "artifacts/word2vec_model.model"
         self.word2vec_model = Word2Vec.load(self.path_model)
-        mongo_uri = os.getenv("MONGO_URI")
+        mongo_uri = "mongodb+srv://tm026575:ansu2003@internovacluster.byibt.mongodb.net/?retryWrites=true&w=majority&appName=internovaCluster"
         self.client = MongoClient(mongo_uri)
         self.db = self.client["internova_profile"]
         self.candidate_collection = self.db["candidate_profile"]
