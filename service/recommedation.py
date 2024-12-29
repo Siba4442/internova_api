@@ -110,7 +110,10 @@ class RecommedationService():
             matched_candidates.append({
                 "_id": str(candidate["_id"]),  # Convert ObjectId to string
                 "can_id": candidate.get("can_id"),
-                "similarity": similarity  # Store similarity for sorting
+                "name": candidate.get("name"),
+                "email": candidate.get("email"),
+                "skills": candidate.get("skills"),
+                "similarity": similarity       # Store similarity for sorting
             })
 
         # Sort by similarity in descending order
